@@ -1,0 +1,48 @@
+﻿@model LoginAuth.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+
+    LoginAuth.Models.AppUser user = ViewBag.user;
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (user.UserRoleId.ToString() == "822cbf73-0aca-11e8-bbbb-7a79195ecca3")
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
+    }
+    |
+    @Html.ActionLink("Back to List", "Index")
+</p>
